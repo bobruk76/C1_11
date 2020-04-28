@@ -23,8 +23,8 @@ jQuery.prototype.setReadOnly = function(){
   return this;
 }
 
-jQuery.prototype.setDisabled  = function(){
-	this.each(element => element.disabled  = true)
+jQuery.prototype.setDisabled  = function(isDisable = true){
+	this.each(element => element.disabled  = isDisable)
   return this;
 }
 jQuery.prototype.hide = function(){

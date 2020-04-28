@@ -1,5 +1,6 @@
 const minValue=0;
-const maxValue=59
+const maxValue=59;
+let timerId;
 const btnFn = (selector, oper, minVal=minValue, maxVal=maxValue) => {
   $obj = $(selector);
   let value = $obj.value()[0];
@@ -19,21 +20,32 @@ const updateText = (total, selectorMin, selectorSec) =>{
 
 }
 
-const countDown = () => {
-  $(".btn").addClass("disable_dbutton");
-  $("#start-btn").addClass("disable_dbutton");
+const stopChange = () => {
+  $(".btn").addClass("disable-dbutton");
+  $("#start-btn").addClass("disable-dbutton");
+  $("#minutes").setDisabled();
+  $("#seconds").setDisabled();
+}
 
+
+const startChange = () => {
+  $(".btn").removeClass("disable-dbutton");
+  $("#start-btn").removeClass("disable-dbutton");
+  $("#minutes").setDisabled(false);
+  $("#seconds").setDisabled(false);
+}
+
+const countDown = () => {
+  stopChange();
   const countSec = $("#seconds").value()[0];
   const countMin = $("#minutes").value()[0];
   let total = (countSec * 1) + (countMin * 60);
 
-  let timerId = setInterval(() => {
+  timerId = setInterval(() => {
     updateText(total--,"#minutes","#seconds");
     if (total < 0) {
       clearInterval(timerId);
-      alert("Countdown is done!");
-      $(".btn").addClass("disable_dbutton");
-      $("#start-btn").addClass("disable_dbutton");
+      startChange();
     };
   }, 1000);
 }
@@ -67,6 +79,11 @@ function init() {
 
   $("#start-btn").click( function() {
     countDown();
+  });
+
+  $("#stop-btn").click( function() {
+    clearInterval(timerId);
+    startChange();
   });
 }
 
