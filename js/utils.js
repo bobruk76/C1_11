@@ -13,6 +13,20 @@ jQuery.prototype.click = function(fn){
 	return this
 }
 
+jQuery.prototype.change = function(fn){
+	this.each(element => element.addEventListener('change', fn))
+	return this
+}
+
+jQuery.prototype.setReadOnly = function(){
+	this.each(element => element.readOnly = true)
+  return this;
+}
+
+jQuery.prototype.setDisabled  = function(){
+	this.each(element => element.disabled  = true)
+  return this;
+}
 jQuery.prototype.hide = function(){
 	this.each(element => element.style.display = 'none')
   return this;
@@ -30,6 +44,16 @@ jQuery.prototype.remove = function(){
 
 jQuery.prototype.class = function(name){
 	this.each(element => element.className = name)
+  return this;
+}
+
+jQuery.prototype.addClass = function(name){
+	this.each(element => element.classList.add(name))
+  return this;
+}
+
+jQuery.prototype.removeClass = function(name){
+	this.each(element => element.classList.remove(name))
   return this;
 }
 
@@ -67,5 +91,3 @@ jQuery.prototype.value = function(newValue = null){
   return result;
 }
 const $ = (e) => new jQuery(e);
-
-// $('button').hide().show().click(e => console.log(e)).class('name')
