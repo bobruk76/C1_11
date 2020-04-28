@@ -46,7 +46,6 @@ jQuery.prototype.html = function(newHTML=''){
   this.each(element => {
     result.push(element.outerHTML);
   });
-  console.log(result);
   return result;
 }
 
@@ -56,7 +55,6 @@ jQuery.prototype.text = function(newTextContent=''){
   };
   let result = [];
   this.each(element => result.push(element.textContent));
-  console.log(result);
   return result;
 }
 
@@ -66,7 +64,6 @@ jQuery.prototype.value = function(newValue = null){
   };
     let result = [];
    this.each(element => result.push(element.value));
-   console.log(result);
   return result;
 }
 const $ = (e) => new jQuery(e);
