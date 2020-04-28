@@ -1,12 +1,16 @@
 
 body{
   display: grid;
-  grid-template-rows: 20vh 50vh 20vh;
+  grid-template-rows: 10vh 50vh 10vh;
   background:  rgba(180, 178, 178, 0.274);
 }
 
 h1 {
   font-size: 5vw;
+}
+
+label, p{
+  font-size: 4vw;
 }
 
 .grid-wrapper {
@@ -45,4 +49,13 @@ input{
 .disable-dbutton {
   pointer-events: none;
   opacity: 0.4;
+}
+
+.hide{
+  display: none;
+}
+
+.isDone{
+  color: red;
+  font-weight: 800;
 }

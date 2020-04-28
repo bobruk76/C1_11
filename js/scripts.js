@@ -27,7 +27,6 @@ const stopChange = () => {
   $("#seconds").setDisabled();
 }
 
-
 const startChange = () => {
   $(".btn").removeClass("disable-dbutton");
   $("#start-btn").removeClass("disable-dbutton");
@@ -46,6 +45,9 @@ const countDown = () => {
     if (total < 0) {
       clearInterval(timerId);
       startChange();
+
+      $(".isDone").removeClass("hide");
+      setTimeout(() => {$(".isDone").addClass("hide")}, 3000);
     };
   }, 1000);
 }
