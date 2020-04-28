@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/styles.css">
 
-    <title>PVM С8.1</title>
+    <title>PVM С11</title>
 
   </head>
   <body>
+    <h1>
+      Countdown Clock
+    </h1>
       <div class="grid-wrapper">
-        <div class="change_this">Менять будем тут!</div>
-        <div class="change_this">Менять будем тут!</div>
-        <div class="change_this">Менять будем тут!</div>
-
-        <textarea name="message1" id="message1" cols="30" rows="10"  placeholder=""></textarea>
-        <textarea name="message2" id="message2" cols="30" rows="10"  placeholder=""></textarea>
-        <div></div>
-
-        <button id="btn1" class="btn btn-primary">Заменить HTML</button>
-        <button id="btn2" class="btn btn-primary">Заменить TEXT</button>
+        <div>
+          <label for="minutes">Minutes (between 0 and 59):</label>
+          <input type="number" id="minutes" name="minutes" min="0" max="59">
+        </div>
+        <div>
+          <label for="seconds">Seconds (between 0 and 59):</label>
+          <input type="number" id="seconds" name="seconds" min="0" max="59">
+        </div>
+        <div>
+          <button id="btn_min_up" class="btn btn-primary">+</button>
+          <button id="btn_min_down" class="btn btn-primary">-</button>
+        </div>
         <div></div>
       </div>
       <main>
